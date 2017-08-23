@@ -1,6 +1,6 @@
 @import '../core/theming/palette';
 @import '../core/theming/theming';
-@import '../core/typography/_typography-utils.scss';
+@import '../core/typography/typography-utils';
 
 @mixin mat-stepper-theme($theme) {
   $foreground: map-get($theme, foreground);
@@ -43,5 +43,11 @@
 
   .mat-stepper-horizontal-line {
     border-top-color: mat-color($foreground, divider);
+  }
+}
+
+@mixin mat-stepper-typography($config) {
+  .mat-stepper-vertical, .mat-stepper-horizontal {
+    font-family: mat-font-family($config);
   }
 }
