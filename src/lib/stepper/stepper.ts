@@ -10,7 +10,7 @@ import {CdkStep, CdkStepper} from '@angular/cdk/stepper';
 import {
   Component,
   ContentChild,
-  ContentChildren,
+  ContentChildren, Directive,
   // This import is only used to define a generic type. The current TypeScript version incorrectly
   // considers such imports as unused (https://github.com/Microsoft/TypeScript/issues/14953)
   // tslint:disable-next-line:no-unused-variable
@@ -67,6 +67,9 @@ export class MdStep extends CdkStep implements ErrorOptions {
   }
 }
 
+@Directive({
+  selector: '[mdStepper]'
+})
 export class MdStepper extends CdkStepper implements ErrorOptions {
   /** The list of step headers of the steps in the stepper. */
   @ViewChildren(MdStepHeader, {read: ElementRef}) _stepHeader: QueryList<ElementRef>;

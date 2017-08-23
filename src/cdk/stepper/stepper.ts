@@ -117,11 +117,7 @@ export class CdkStep {
 }
 
 @Directive({
-  selector: 'cdk-stepper',
-  host: {
-    '(focus)': '_focusStep()',
-    '(keydown)': '_onKeydown($event)'
-  },
+  selector: '[cdkStepper]',
 })
 export class CdkStepper {
   /** The list of step components that the stepper is holding. */

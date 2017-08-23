@@ -1,13 +1,12 @@
 import {Component} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 @Component({
   moduleId: module.id,
   selector: 'stepper-demo',
-  templateUrl: 'stepper-demo.html',
-  styleUrls: ['stepper-demo.scss']
+  templateUrl: 'stepper-demo.html'
 })
 export class StepperDemo {
   formGroup: FormGroup;
@@ -25,7 +24,7 @@ export class StepperDemo {
   ];
 
   /** Returns a FormArray with the name 'formArray'. */
-  get formArray() { return this.formGroup.get('formArray'); }
+  get formArray(): AbstractControl | null { return this.formGroup.get('formArray'); }
 
   constructor(private _formBuilder: FormBuilder) { }
 
