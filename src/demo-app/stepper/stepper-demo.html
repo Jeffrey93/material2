@@ -3,7 +3,7 @@
 <h3>Linear Vertical Stepper Demo using a single form</h3>
 <form [formGroup]="formGroup">
   <md-vertical-stepper formArrayName="formArray" [linear]="!isNonLinear">
-    <md-step formGroupName="0" [stepControl]="formArray.get([0])">
+    <md-step formGroupName="0" [stepControl]="formArray?.get([0])">
       <ng-template mdStepLabel>Fill out your name</ng-template>
       <md-input-container>
         <input mdInput placeholder="First Name" formControlName="firstNameFormCtrl" required>
@@ -19,7 +19,7 @@
       </div>
     </md-step>
 
-    <md-step formGroupName="1" [stepControl]="formArray.get([1])" optional>
+    <md-step formGroupName="1" [stepControl]="formArray?.get([1])" optional>
       <ng-template mdStepLabel>
         <div>Fill out your email address</div>
       </ng-template>

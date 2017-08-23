@@ -9,10 +9,13 @@
 import {Directive, TemplateRef} from '@angular/core';
 import {CdkStepLabel} from '@angular/cdk/stepper';
 
+/** Workaround for https://github.com/angular/angular/issues/17849 */
+export const _MdStepLabel = CdkStepLabel;
+
 @Directive({
   selector: '[mdStepLabel], [matStepLabel]',
 })
-export class MdStepLabel extends CdkStepLabel {
+export class MdStepLabel extends _MdStepLabel {
   constructor(template: TemplateRef<any>) {
     super(template);
   }

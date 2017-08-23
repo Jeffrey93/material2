@@ -32,6 +32,10 @@ import {
 import {FormControl, FormGroupDirective, NgForm} from '@angular/forms';
 import {MdStepHeader} from './step-header';
 
+/** Workaround for https://github.com/angular/angular/issues/17849 */
+export const _MdStep = CdkStep;
+export const _MdStepper = CdkStepper;
+
 @Component({
   moduleId: module.id,
   selector: 'md-step, mat-step',
@@ -39,7 +43,7 @@ import {MdStepHeader} from './step-header';
   providers: [{provide: MD_ERROR_GLOBAL_OPTIONS, useExisting: MdStep}],
   encapsulation: ViewEncapsulation.None
 })
-export class MdStep extends CdkStep implements ErrorOptions {
+export class MdStep extends _MdStep implements ErrorOptions {
   /** Content for step label given by <ng-template matStepLabel> or <ng-template mdStepLabel>. */
   @ContentChild(MdStepLabel) stepLabel: MdStepLabel;
 
@@ -70,7 +74,7 @@ export class MdStep extends CdkStep implements ErrorOptions {
 @Directive({
   selector: '[mdStepper]'
 })
-export class MdStepper extends CdkStepper implements ErrorOptions {
+export class MdStepper extends _MdStepper implements ErrorOptions {
   /** The list of step headers of the steps in the stepper. */
   @ViewChildren(MdStepHeader, {read: ElementRef}) _stepHeader: QueryList<ElementRef>;
 
